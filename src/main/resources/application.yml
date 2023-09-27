@@ -1,0 +1,26 @@
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
+server:
+  port: 8081
+spring:
+  application:
+    name: employee-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/micro_db
+    username: springuser
+    password: ThePassword
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: attendance-consumer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
